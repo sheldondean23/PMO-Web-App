@@ -1,0 +1,580 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="HSISProjectsTestEntities.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="tblCategories">
+    <Key>
+      <PropertyRef Name="CategoryID" />
+    </Key>
+    <Property Name="CategoryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CategoryName" Type="nchar" MaxLength="30" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblFacilities">
+    <Key>
+      <PropertyRef Name="FacitityID" />
+    </Key>
+    <Property Name="FacitityID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FacitityName" Type="nchar" MaxLength="30" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblHSISPrimaryLead">
+    <Key>
+      <PropertyRef Name="PrimaryLeadID" />
+    </Key>
+    <Property Name="PrimaryLeadID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PrimaryLeadName" Type="nchar" MaxLength="30" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblHSISSecondaryLead">
+    <Key>
+      <PropertyRef Name="SecondaryLeadID" />
+    </Key>
+    <Property Name="SecondaryLeadID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SecondaryLeadName" Type="nchar" MaxLength="30" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblProjectBudget">
+    <Key>
+      <PropertyRef Name="ProjectBudgetID" />
+    </Key>
+    <Property Name="ProjectBudgetID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProjectID" Type="int" Nullable="false" />
+    <Property Name="ProjectDesiredBudget" Type="int" />
+    <Property Name="ProjectActualBudget" Type="int" />
+  </EntityType>
+  <EntityType Name="tblProjectCategories">
+    <Key>
+      <PropertyRef Name="ConvertionID" />
+    </Key>
+    <Property Name="ConvertionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CategoryID" Type="int" Nullable="false" />
+    <Property Name="ProjectID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblProjectDates">
+    <Key>
+      <PropertyRef Name="ProjectDatesID" />
+    </Key>
+    <Property Name="ProjectDatesID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProjectID" Type="int" Nullable="false" />
+    <Property Name="ScheduledStartDate" Type="datetime" />
+    <Property Name="ScheduledEndDate" Type="datetime" />
+    <Property Name="ActualStartDate" Type="datetime" />
+    <Property Name="ActualEndDate" Type="datetime" />
+    <Property Name="RequestedDate" Type="datetime" />
+    <Property Name="ContactedDate" Type="datetime" />
+    <Property Name="ArchiveDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tblProjectFacilities">
+    <Key>
+      <PropertyRef Name="ConvertionID" />
+    </Key>
+    <Property Name="ConvertionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FacilityID" Type="int" Nullable="false" />
+    <Property Name="ProjectID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblProjectInformation">
+    <Key>
+      <PropertyRef Name="ProjectID" />
+    </Key>
+    <Property Name="ProjectID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProjectName" Type="nvarchar" MaxLength="55" Nullable="false" />
+    <Property Name="HSISPrimaryLeadID" Type="int" />
+    <Property Name="HSISSecondaryLeadID" Type="int" />
+    <Property Name="ProjectRequestTypeID" Type="int" Nullable="false" />
+    <Property Name="ProjectSizeID" Type="int" />
+    <Property Name="ProjectRequesterID" Type="int" Nullable="false" />
+    <Property Name="ProjectPriorityID" Type="int" />
+    <Property Name="ProjectStatusID" Type="int" />
+    <Property Name="DepartmentOfRequest" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ProjectLaborHours" Type="float" />
+    <Property Name="ProjectRankingScore" Type="int" />
+    <Property Name="ProjectSubmitter" Type="nvarchar" MaxLength="30" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblProjectPriority">
+    <Key>
+      <PropertyRef Name="PriorityID" />
+    </Key>
+    <Property Name="PriorityID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PriorityName" Type="nchar" MaxLength="30" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblProjectPurpose">
+    <Key>
+      <PropertyRef Name="ProjectPurposeID" />
+    </Key>
+    <Property Name="ProjectPurposeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProjectID" Type="int" Nullable="false" />
+    <Property Name="Comments" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="FutureState" Type="varchar" MaxLength="255" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblProjectRequester">
+    <Key>
+      <PropertyRef Name="ProjectRequesterID" />
+    </Key>
+    <Property Name="ProjectRequesterID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProjectRequesterName" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="ProjectRequesterEmail" Type="nvarchar" MaxLength="35" Nullable="false" />
+    <Property Name="ProjectRequesterPhone" Type="nvarchar" MaxLength="17" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblProjectRequestType">
+    <Key>
+      <PropertyRef Name="ProjectRequestTypeID" />
+    </Key>
+    <Property Name="ProjectRequestTypeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProjectRequestTypeName" Type="nchar" MaxLength="30" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblProjectResources">
+    <Key>
+      <PropertyRef Name="ConvertionID" />
+    </Key>
+    <Property Name="ConvertionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ResourceID" Type="int" Nullable="false" />
+    <Property Name="ProjectID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblProjectSize">
+    <Key>
+      <PropertyRef Name="ProjectSizeID" />
+    </Key>
+    <Property Name="ProjectSizeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProjectSizeName" Type="nchar" MaxLength="10" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblProjectStatus">
+    <Key>
+      <PropertyRef Name="StatusID" />
+    </Key>
+    <Property Name="StatusID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="StatusName" Type="nchar" MaxLength="30" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblProjectStatusUpdates">
+    <Key>
+      <PropertyRef Name="ProjectStatusUpdatesID" />
+    </Key>
+    <Property Name="ProjectStatusUpdatesID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProjectID" Type="int" Nullable="false" />
+    <Property Name="ProjectStatusUpdate" Type="nchar" MaxLength="255" Nullable="false" />
+    <Property Name="ProjectStatusUpdateDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblResources">
+    <Key>
+      <PropertyRef Name="ResourceID" />
+    </Key>
+    <Property Name="ResourceID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ResourceName" Type="nchar" MaxLength="30" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__tblProjec__Categ__5832119F">
+    <End Role="tblCategories" Type="Self.tblCategories" Multiplicity="1" />
+    <End Role="tblProjectCategories" Type="Self.tblProjectCategories" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblCategories">
+        <PropertyRef Name="CategoryID" />
+      </Principal>
+      <Dependent Role="tblProjectCategories">
+        <PropertyRef Name="CategoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tblProjec__Facil__536D5C82">
+    <End Role="tblFacilities" Type="Self.tblFacilities" Multiplicity="1" />
+    <End Role="tblProjectFacilities" Type="Self.tblProjectFacilities" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblFacilities">
+        <PropertyRef Name="FacitityID" />
+      </Principal>
+      <Dependent Role="tblProjectFacilities">
+        <PropertyRef Name="FacilityID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tblProjec__HSISP__442B18F2">
+    <End Role="tblHSISPrimaryLead" Type="Self.tblHSISPrimaryLead" Multiplicity="0..1" />
+    <End Role="tblProjectInformation" Type="Self.tblProjectInformation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblHSISPrimaryLead">
+        <PropertyRef Name="PrimaryLeadID" />
+      </Principal>
+      <Dependent Role="tblProjectInformation">
+        <PropertyRef Name="HSISPrimaryLeadID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tblProjec__HSISS__451F3D2B">
+    <End Role="tblHSISSecondaryLead" Type="Self.tblHSISSecondaryLead" Multiplicity="0..1" />
+    <End Role="tblProjectInformation" Type="Self.tblProjectInformation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblHSISSecondaryLead">
+        <PropertyRef Name="SecondaryLeadID" />
+      </Principal>
+      <Dependent Role="tblProjectInformation">
+        <PropertyRef Name="HSISSecondaryLeadID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tblProjec__Proje__46136164">
+    <End Role="tblProjectRequestType" Type="Self.tblProjectRequestType" Multiplicity="1" />
+    <End Role="tblProjectInformation" Type="Self.tblProjectInformation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblProjectRequestType">
+        <PropertyRef Name="ProjectRequestTypeID" />
+      </Principal>
+      <Dependent Role="tblProjectInformation">
+        <PropertyRef Name="ProjectRequestTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tblProjec__Proje__4707859D">
+    <End Role="tblProjectSize" Type="Self.tblProjectSize" Multiplicity="0..1" />
+    <End Role="tblProjectInformation" Type="Self.tblProjectInformation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblProjectSize">
+        <PropertyRef Name="ProjectSizeID" />
+      </Principal>
+      <Dependent Role="tblProjectInformation">
+        <PropertyRef Name="ProjectSizeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tblProjec__Proje__47FBA9D6">
+    <End Role="tblProjectRequester" Type="Self.tblProjectRequester" Multiplicity="1" />
+    <End Role="tblProjectInformation" Type="Self.tblProjectInformation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblProjectRequester">
+        <PropertyRef Name="ProjectRequesterID" />
+      </Principal>
+      <Dependent Role="tblProjectInformation">
+        <PropertyRef Name="ProjectRequesterID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tblProjec__Proje__48EFCE0F">
+    <End Role="tblProjectPriority" Type="Self.tblProjectPriority" Multiplicity="0..1" />
+    <End Role="tblProjectInformation" Type="Self.tblProjectInformation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblProjectPriority">
+        <PropertyRef Name="PriorityID" />
+      </Principal>
+      <Dependent Role="tblProjectInformation">
+        <PropertyRef Name="ProjectPriorityID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tblProjec__Proje__49E3F248">
+    <End Role="tblProjectStatus" Type="Self.tblProjectStatus" Multiplicity="0..1" />
+    <End Role="tblProjectInformation" Type="Self.tblProjectInformation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblProjectStatus">
+        <PropertyRef Name="StatusID" />
+      </Principal>
+      <Dependent Role="tblProjectInformation">
+        <PropertyRef Name="ProjectStatusID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tblProjec__Proje__4DB4832C">
+    <End Role="tblProjectInformation" Type="Self.tblProjectInformation" Multiplicity="1" />
+    <End Role="tblProjectResources" Type="Self.tblProjectResources" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblProjectInformation">
+        <PropertyRef Name="ProjectID" />
+      </Principal>
+      <Dependent Role="tblProjectResources">
+        <PropertyRef Name="ProjectID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tblProjec__Proje__52793849">
+    <End Role="tblProjectInformation" Type="Self.tblProjectInformation" Multiplicity="1" />
+    <End Role="tblProjectFacilities" Type="Self.tblProjectFacilities" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblProjectInformation">
+        <PropertyRef Name="ProjectID" />
+      </Principal>
+      <Dependent Role="tblProjectFacilities">
+        <PropertyRef Name="ProjectID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tblProjec__Proje__573DED66">
+    <End Role="tblProjectInformation" Type="Self.tblProjectInformation" Multiplicity="1" />
+    <End Role="tblProjectCategories" Type="Self.tblProjectCategories" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblProjectInformation">
+        <PropertyRef Name="ProjectID" />
+      </Principal>
+      <Dependent Role="tblProjectCategories">
+        <PropertyRef Name="ProjectID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tblProjec__Proje__5B0E7E4A">
+    <End Role="tblProjectInformation" Type="Self.tblProjectInformation" Multiplicity="1" />
+    <End Role="tblProjectBudget" Type="Self.tblProjectBudget" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblProjectInformation">
+        <PropertyRef Name="ProjectID" />
+      </Principal>
+      <Dependent Role="tblProjectBudget">
+        <PropertyRef Name="ProjectID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tblProjec__Proje__5DEAEAF5">
+    <End Role="tblProjectInformation" Type="Self.tblProjectInformation" Multiplicity="1" />
+    <End Role="tblProjectPurpose" Type="Self.tblProjectPurpose" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblProjectInformation">
+        <PropertyRef Name="ProjectID" />
+      </Principal>
+      <Dependent Role="tblProjectPurpose">
+        <PropertyRef Name="ProjectID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tblProjec__Proje__60C757A0">
+    <End Role="tblProjectInformation" Type="Self.tblProjectInformation" Multiplicity="1" />
+    <End Role="tblProjectDates" Type="Self.tblProjectDates" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblProjectInformation">
+        <PropertyRef Name="ProjectID" />
+      </Principal>
+      <Dependent Role="tblProjectDates">
+        <PropertyRef Name="ProjectID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tblProjec__Proje__63A3C44B">
+    <End Role="tblProjectInformation" Type="Self.tblProjectInformation" Multiplicity="1" />
+    <End Role="tblProjectStatusUpdates" Type="Self.tblProjectStatusUpdates" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblProjectInformation">
+        <PropertyRef Name="ProjectID" />
+      </Principal>
+      <Dependent Role="tblProjectStatusUpdates">
+        <PropertyRef Name="ProjectID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tblProjec__Resou__4EA8A765">
+    <End Role="tblResources" Type="Self.tblResources" Multiplicity="1" />
+    <End Role="tblProjectResources" Type="Self.tblProjectResources" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblResources">
+        <PropertyRef Name="ResourceID" />
+      </Principal>
+      <Dependent Role="tblProjectResources">
+        <PropertyRef Name="ResourceID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="sp_Budget_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ProjectID" Type="int" Mode="In" />
+    <Parameter Name="DesiredBudget" Type="int" Mode="In" />
+    <Parameter Name="ActualBudget" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_Budget_Update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ProjectID" Type="int" Mode="In" />
+    <Parameter Name="DesiredBudget" Type="int" Mode="In" />
+    <Parameter Name="ActualBudget" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_Dates_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ProjectID" Type="int" Mode="In" />
+    <Parameter Name="SchedualedStartDate" Type="datetime" Mode="In" />
+    <Parameter Name="SchedualedEndDate" Type="datetime" Mode="In" />
+    <Parameter Name="ActualStartDate" Type="datetime" Mode="In" />
+    <Parameter Name="ActualEndDate" Type="datetime" Mode="In" />
+    <Parameter Name="RequestedDate" Type="datetime" Mode="In" />
+    <Parameter Name="ContactedDate" Type="datetime" Mode="In" />
+    <Parameter Name="ArchiveDate" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="sp_Dates_Update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ProjectID" Type="int" Mode="In" />
+    <Parameter Name="ScheduledStartDate" Type="datetime" Mode="In" />
+    <Parameter Name="ScheduledEndDate" Type="datetime" Mode="In" />
+    <Parameter Name="ActualStartDate" Type="datetime" Mode="In" />
+    <Parameter Name="ActualEndDate" Type="datetime" Mode="In" />
+    <Parameter Name="RequestedDate" Type="datetime" Mode="In" />
+    <Parameter Name="ContactedDate" Type="datetime" Mode="In" />
+    <Parameter Name="ArchiveDate" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="sp_Project_Category_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ProjectID" Type="int" Mode="In" />
+    <Parameter Name="CategoryID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_Project_Category_Remove" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ProjectID" Type="int" Mode="In" />
+    <Parameter Name="CategoryID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_Project_Category_Update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ProjectID" Type="int" Mode="In" />
+    <Parameter Name="CategoryID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_Project_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ProjectName" Type="nchar" Mode="In" />
+  </Function>
+  <Function Name="sp_Project_Facility_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ProjectID" Type="int" Mode="In" />
+    <Parameter Name="FacilityID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_Project_Facility_Remove" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ProjectID" Type="int" Mode="In" />
+    <Parameter Name="FacilityID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_Project_Facility_Update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ProjectID" Type="int" Mode="In" />
+    <Parameter Name="FacilityID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_Project_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Name" Type="nchar" Mode="In" />
+    <Parameter Name="PrimaryLeadID" Type="int" Mode="In" />
+    <Parameter Name="SecondaryLeadID" Type="int" Mode="In" />
+    <Parameter Name="TypeID" Type="int" Mode="In" />
+    <Parameter Name="SizeID" Type="int" Mode="In" />
+    <Parameter Name="RequesterID" Type="int" Mode="In" />
+    <Parameter Name="PriorityID" Type="int" Mode="In" />
+    <Parameter Name="StatusID" Type="int" Mode="In" />
+    <Parameter Name="DepartmentOfRequest" Type="nchar" Mode="In" />
+    <Parameter Name="LaborHours" Type="float" Mode="In" />
+    <Parameter Name="RankingScore" Type="int" Mode="In" />
+    <Parameter Name="Submitter" Type="nchar" Mode="In" />
+    <Parameter Name="ProjectID" Type="int" Mode="InOut" />
+  </Function>
+  <Function Name="sp_Project_Resource_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ProjectID" Type="int" Mode="In" />
+    <Parameter Name="ResourceID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_Project_Resource_Remove" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ProjectID" Type="int" Mode="In" />
+    <Parameter Name="ResourceID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_Project_Resource_Update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ProjectID" Type="int" Mode="In" />
+    <Parameter Name="ResourceID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_Project_Update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Name" Type="nchar" Mode="In" />
+    <Parameter Name="PrimaryLeadID" Type="int" Mode="In" />
+    <Parameter Name="SecondaryLeadID" Type="int" Mode="In" />
+    <Parameter Name="TypeID" Type="int" Mode="In" />
+    <Parameter Name="SizeID" Type="int" Mode="In" />
+    <Parameter Name="RequesterID" Type="int" Mode="In" />
+    <Parameter Name="PriorityID" Type="int" Mode="In" />
+    <Parameter Name="StatusID" Type="int" Mode="In" />
+    <Parameter Name="DepartmentOfRequest" Type="nchar" Mode="In" />
+    <Parameter Name="LaborHours" Type="float" Mode="In" />
+    <Parameter Name="RankingScore" Type="int" Mode="In" />
+    <Parameter Name="Submitter" Type="nchar" Mode="In" />
+    <Parameter Name="ProjectID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_Prupose_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ProjectID" Type="int" Mode="In" />
+    <Parameter Name="Comments" Type="nchar" Mode="In" />
+    <Parameter Name="FutureState" Type="nchar" Mode="In" />
+  </Function>
+  <Function Name="sp_Purpose_Update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ProjectID" Type="int" Mode="In" />
+    <Parameter Name="Comments" Type="nchar" Mode="In" />
+    <Parameter Name="FutureState" Type="nchar" Mode="In" />
+  </Function>
+  <Function Name="sp_Requester_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Name" Type="varchar" Mode="In" />
+    <Parameter Name="Email" Type="varchar" Mode="In" />
+    <Parameter Name="Phone" Type="varchar" Mode="In" />
+    <Parameter Name="RequestID" Type="int" Mode="InOut" />
+  </Function>
+  <Function Name="sp_Requester_Update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Name" Type="varchar" Mode="In" />
+    <Parameter Name="Email" Type="varchar" Mode="In" />
+    <Parameter Name="Phone" Type="nvarchar" Mode="In" />
+    <Parameter Name="RequestID" Type="int" Mode="InOut" />
+  </Function>
+  <Function Name="sp_StatusUpdate_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ProjectID" Type="int" Mode="In" />
+    <Parameter Name="ProjectStatusUpdate" Type="nchar" Mode="In" />
+    <Parameter Name="ProjectStatusUpdateDate" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="sp_table_names" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="sp_table_row_names" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="TableName" Type="nchar" Mode="In" />
+  </Function>
+  <EntityContainer Name="HSISProjectsTestEntitiesStoreContainer">
+    <EntitySet Name="tblCategories" EntityType="Self.tblCategories" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblFacilities" EntityType="Self.tblFacilities" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblHSISPrimaryLead" EntityType="Self.tblHSISPrimaryLead" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblHSISSecondaryLead" EntityType="Self.tblHSISSecondaryLead" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblProjectBudget" EntityType="Self.tblProjectBudget" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblProjectCategories" EntityType="Self.tblProjectCategories" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblProjectDates" EntityType="Self.tblProjectDates" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblProjectFacilities" EntityType="Self.tblProjectFacilities" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblProjectInformation" EntityType="Self.tblProjectInformation" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblProjectPriority" EntityType="Self.tblProjectPriority" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblProjectPurpose" EntityType="Self.tblProjectPurpose" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblProjectRequester" EntityType="Self.tblProjectRequester" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblProjectRequestType" EntityType="Self.tblProjectRequestType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblProjectResources" EntityType="Self.tblProjectResources" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblProjectSize" EntityType="Self.tblProjectSize" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblProjectStatus" EntityType="Self.tblProjectStatus" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblProjectStatusUpdates" EntityType="Self.tblProjectStatusUpdates" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblResources" EntityType="Self.tblResources" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__tblProjec__Categ__5832119F" Association="Self.FK__tblProjec__Categ__5832119F">
+      <End Role="tblCategories" EntitySet="tblCategories" />
+      <End Role="tblProjectCategories" EntitySet="tblProjectCategories" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tblProjec__Facil__536D5C82" Association="Self.FK__tblProjec__Facil__536D5C82">
+      <End Role="tblFacilities" EntitySet="tblFacilities" />
+      <End Role="tblProjectFacilities" EntitySet="tblProjectFacilities" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tblProjec__HSISP__442B18F2" Association="Self.FK__tblProjec__HSISP__442B18F2">
+      <End Role="tblHSISPrimaryLead" EntitySet="tblHSISPrimaryLead" />
+      <End Role="tblProjectInformation" EntitySet="tblProjectInformation" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tblProjec__HSISS__451F3D2B" Association="Self.FK__tblProjec__HSISS__451F3D2B">
+      <End Role="tblHSISSecondaryLead" EntitySet="tblHSISSecondaryLead" />
+      <End Role="tblProjectInformation" EntitySet="tblProjectInformation" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tblProjec__Proje__46136164" Association="Self.FK__tblProjec__Proje__46136164">
+      <End Role="tblProjectRequestType" EntitySet="tblProjectRequestType" />
+      <End Role="tblProjectInformation" EntitySet="tblProjectInformation" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tblProjec__Proje__4707859D" Association="Self.FK__tblProjec__Proje__4707859D">
+      <End Role="tblProjectSize" EntitySet="tblProjectSize" />
+      <End Role="tblProjectInformation" EntitySet="tblProjectInformation" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tblProjec__Proje__47FBA9D6" Association="Self.FK__tblProjec__Proje__47FBA9D6">
+      <End Role="tblProjectRequester" EntitySet="tblProjectRequester" />
+      <End Role="tblProjectInformation" EntitySet="tblProjectInformation" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tblProjec__Proje__48EFCE0F" Association="Self.FK__tblProjec__Proje__48EFCE0F">
+      <End Role="tblProjectPriority" EntitySet="tblProjectPriority" />
+      <End Role="tblProjectInformation" EntitySet="tblProjectInformation" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tblProjec__Proje__49E3F248" Association="Self.FK__tblProjec__Proje__49E3F248">
+      <End Role="tblProjectStatus" EntitySet="tblProjectStatus" />
+      <End Role="tblProjectInformation" EntitySet="tblProjectInformation" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tblProjec__Proje__4DB4832C" Association="Self.FK__tblProjec__Proje__4DB4832C">
+      <End Role="tblProjectInformation" EntitySet="tblProjectInformation" />
+      <End Role="tblProjectResources" EntitySet="tblProjectResources" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tblProjec__Proje__52793849" Association="Self.FK__tblProjec__Proje__52793849">
+      <End Role="tblProjectInformation" EntitySet="tblProjectInformation" />
+      <End Role="tblProjectFacilities" EntitySet="tblProjectFacilities" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tblProjec__Proje__573DED66" Association="Self.FK__tblProjec__Proje__573DED66">
+      <End Role="tblProjectInformation" EntitySet="tblProjectInformation" />
+      <End Role="tblProjectCategories" EntitySet="tblProjectCategories" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tblProjec__Proje__5B0E7E4A" Association="Self.FK__tblProjec__Proje__5B0E7E4A">
+      <End Role="tblProjectInformation" EntitySet="tblProjectInformation" />
+      <End Role="tblProjectBudget" EntitySet="tblProjectBudget" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tblProjec__Proje__5DEAEAF5" Association="Self.FK__tblProjec__Proje__5DEAEAF5">
+      <End Role="tblProjectInformation" EntitySet="tblProjectInformation" />
+      <End Role="tblProjectPurpose" EntitySet="tblProjectPurpose" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tblProjec__Proje__60C757A0" Association="Self.FK__tblProjec__Proje__60C757A0">
+      <End Role="tblProjectInformation" EntitySet="tblProjectInformation" />
+      <End Role="tblProjectDates" EntitySet="tblProjectDates" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tblProjec__Proje__63A3C44B" Association="Self.FK__tblProjec__Proje__63A3C44B">
+      <End Role="tblProjectInformation" EntitySet="tblProjectInformation" />
+      <End Role="tblProjectStatusUpdates" EntitySet="tblProjectStatusUpdates" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tblProjec__Resou__4EA8A765" Association="Self.FK__tblProjec__Resou__4EA8A765">
+      <End Role="tblResources" EntitySet="tblResources" />
+      <End Role="tblProjectResources" EntitySet="tblProjectResources" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

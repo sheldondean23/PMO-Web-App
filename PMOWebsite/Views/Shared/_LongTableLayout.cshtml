@@ -1,0 +1,123 @@
+﻿@using MvcFlashMessages;
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link href="~/Content/Custom.css" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="@Url.Content("~/Content/flash-messages.css")" />
+    <link type="text/css" rel="stylesheet" href="@Url.Content("~/Content/screen.css")" />
+
+    <script>
+function startTime() {
+    var today = new Date();
+    var date = today.toDateString();
+    var time = today.toString()
+    var day = today.getDate();
+    var month = today.getMonth();
+    var year = today.getFullYear();
+    var h = today.getHours();
+    var m = today.getMinutes();
+    var s = today.getSeconds();
+    m = checkTime(m);
+    s = checkTime(s);
+    document.getElementById('dateTime').innerHTML =
+        date + " " + h + ":" + m + ":" + s;
+    var t = setTimeout(startTime, 500);
+}
+function checkTime(i) {
+    if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+    return i;
+}
+    </script>
+
+    @*<script>
+            function submitWith() {
+                var checkedCount = $("input:checked").length;
+                var valid = checkedCount > 0;
+                if (!valid) {
+                    $('#validationMessage').html('You must select at least one option');
+                }
+                return valid;
+            }
+        </script>*@
+</head>
+<body onload="startTime()">
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Project Management Office", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" });
+            </div>
+            <div class="navbar-collapse collapse ">
+                <ul class="nav navbar-nav ">
+                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li class="dropdownMenu">
+                        <a href="#">Project</a>
+                        <ul class="dropdownContent navbar-nav">
+                            <li>@Html.ActionLink("New Project Request", "Create", "Projects")</li>
+                            <li>@Html.ActionLink("How to submit a project", "HowTo", "Projects")</li>
+                            <li>@Html.ActionLink("View All Projects", "Index", "Projects")</li>
+                            <li>@Html.ActionLink("Project Lifecycle", "Lifecycle", "Projects")</li>
+                        </ul>
+                    </li>
+                    <li>@Html.ActionLink("ISSC", "ISSC", "Home")</li>
+                    <li>@Html.ActionLink("Documents", "Documents", "Paperwork")</li>
+                    <li>@Html.ActionLink("FAQ", "FAQ", "Home")</li>
+                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                </ul>
+                @Html.Partial("_LoginPartial")
+            </div>
+        </div>
+    </div>
+    <div class="container body-contentLong">
+        @Html.RenderFlash()
+
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+    <script src="~/Scripts/sorttable.js"></script>
+
+    @*<script type="text/javascript">
+        $(document).ready(function () {
+        $('#filterOptions').change(function () {
+            if ($("#ddl").val() == "ContactedDate" || $("#ddl").val() == "ApplicationDate")
+            {
+                document.getElementById("filterText").innerHTML = '<div class="flex-item"><label class="control-label col-md-2" for="SearchString"> Start Date: </label></div><div class="flex-item ">@Html.TextBox("StartDate", null, "{0:yyyy-MM-dd}", new { @type = "date", @class = "form-control date-picker" })</div><div class="flex-item"><label class="control-label col-md-2" for="SearchString"> End Date: </label></div><div class="flex-item ">@Html.TextBox("EndDate", null, "{0:yyyy-MM-dd}", new { @type = "date", @class = "form-control date-picker" })</div>'
+            }
+            else
+            {
+                document.getElementById("filterText").innerHTML = '<div class="flex-item"><label class="control-label col-md-2" for="SearchString"> Filter text: </label></div><div class="flex-item ">@Html.TextBox("SearchString", null, new {@class = "form-control date-picker" })</div>'
+            }
+            var url = $("#filterOptions").data("url") + '/' + $("#ddl").val();
+            $.ajax({
+                type: 'GET',
+                url: url,
+                dataType: 'json',
+                success: function (result) {
+                    console.log(result);
+                },
+                error: function (ex) {
+                    console.log('Failed to retrieve filter option. ' + ex);
+                }
+            });
+            return false;
+        });
+        });
+    </script>*@
+</body>
+</html>

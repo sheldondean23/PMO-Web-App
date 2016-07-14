@@ -1,0 +1,148 @@
+﻿.dropdownMenu
+{
+    position: relative;
+    display: inline-block;
+}
+
+div.container.body-contentLong
+{ 
+    box-sizing: border-box;
+    min-width: 1500px;
+}
+
+.dropdownContent 
+{
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 12px 16px;
+}
+
+.dropdownMenu:hover .dropdownContent
+{
+    display: block;
+    z-index: -1;
+}
+.linebreaks 
+{
+white-space:pre;            
+}
+.flex
+{
+    display:flex;
+}
+.padding
+{
+    padding: 20px;
+}
+.border
+{
+    border-style: solid;
+}
+.margin-50
+{
+    margin: 50px;
+}
+.block
+{
+    display:inline-block;
+}
+.text-18
+{
+    font-size: 18px;
+}
+.navbar-inverse .navbar-nav .dropdownContent > li > a:hover
+{
+    color: black;
+}
+.padding-light
+{
+    padding: 4px;
+}
+.align-right
+{
+    float: right;
+}
+.align-left
+{
+    float: left;
+}
+.refresh-button 
+{
+    background-color: white;
+    width: 35px;
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+    text-align: center;
+    font-weight: 900;
+}
+.flex
+{
+    display: flex;
+}
+.align-right
+{
+    float: right;
+}
+.align-left
+{
+    float: left;
+}
+.half-wrapper
+{
+    width: 50%;
+}
+.Filter
+{
+    display: table;
+    width: 100%;
+}
+.stretch
+{
+    display: table-cell;
+}
+.feedbackSplit
+{
+    font-weight: 800;
+    font-size: 20px;
+    padding-bottom: 0px;
+}
+.circle 
+{
+	border-radius: 50%;
+	width: 200px;
+	height: 200px; 
+	/* width and height can be anything, as long as they're equal */
+}
+/* Create the animation blocks */
+@keyframes spin 
+{
+	from { transform: rotate(0deg); }
+	to { transform: rotate(360deg); }
+}
+
+/* Spinning, gradient circle; CSS only! */
+#advanced 
+{
+	width: 20px;
+	height: 20px;
+	
+	background-image: -moz-radial-gradient(45px 45px 45deg, circle cover, yellow 0%, orange 100%, red 95%);
+	background-image: -webkit-radial-gradient(45px 45px, circle cover, yellow, orange);
+	background-image: radial-gradient(45px 45px 45deg, circle cover, yellow 0%, orange 100%, red 95%);
+	
+	animation-name: spin; 
+	animation-duration: 3s; /* 3 seconds */
+	animation-iteration-count: infinite; 
+	animation-timing-function: linear;
+}
+@media (min-width: 768px) 
+{
+  ul .dropdownMenu .dropdownContent .navbar-nav
+  {
+    display: block;
+    z-index: -1;
+  }
+}

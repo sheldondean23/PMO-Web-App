@@ -1,0 +1,258 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="HSISProjectsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="tblCategories">
+    <Key>
+      <PropertyRef Name="CategoryID" />
+    </Key>
+    <Property Name="CategoryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CategoryName" Type="nchar" MaxLength="30" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblFacitities">
+    <Key>
+      <PropertyRef Name="FacitityID" />
+    </Key>
+    <Property Name="FacitityID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FacitityName" Type="nchar" MaxLength="30" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblProjectCategories">
+    <Key>
+      <PropertyRef Name="ConvertionID" />
+    </Key>
+    <Property Name="ConvertionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CategoryID" Type="int" Nullable="false" />
+    <Property Name="ProjectID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblProjectDates">
+    <Key>
+      <PropertyRef Name="ProjectDatesID" />
+    </Key>
+    <Property Name="ProjectDatesID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProjectID" Type="int" Nullable="false" />
+    <Property Name="SchedualedStartDate" Type="datetime" />
+    <Property Name="SchedualedEndDate" Type="datetime" />
+    <Property Name="ActualStartDate" Type="datetime" />
+    <Property Name="ActualEndDate" Type="datetime" />
+    <Property Name="RequestedDate" Type="datetime" Nullable="false" />
+    <Property Name="ContactedDate" Type="datetime" />
+    <Property Name="ArchiveDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tblProjectStatus">
+    <Key>
+      <PropertyRef Name="StatusID" />
+    </Key>
+    <Property Name="StatusID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="StatusName" Type="nchar" MaxLength="30" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblProjectStatusUpdates">
+    <Key>
+      <PropertyRef Name="ProjectStatusUpdatesID" />
+    </Key>
+    <Property Name="ProjectStatusUpdatesID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProjectID" Type="int" Nullable="false" />
+    <Property Name="ProjectStatusUpdate" Type="nchar" MaxLength="255" Nullable="false" />
+    <Property Name="ProjectStatusUpdateDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblSystemFacilities">
+    <Key>
+      <PropertyRef Name="ConvertionID" />
+    </Key>
+    <Property Name="ConvertionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FacitityID" Type="int" Nullable="false" />
+    <Property Name="ProjectID" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__tblProjec__Categ__33D4B598">
+    <End Role="tblCategories" Type="Self.tblCategories" Multiplicity="1" />
+    <End Role="tblProjectCategories" Type="Self.tblProjectCategories" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblCategories">
+        <PropertyRef Name="CategoryID" />
+      </Principal>
+      <Dependent Role="tblProjectCategories">
+        <PropertyRef Name="CategoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tblSystem__Facit__2F10007B">
+    <End Role="tblFacitities" Type="Self.tblFacitities" Multiplicity="1" />
+    <End Role="tblSystemFacilities" Type="Self.tblSystemFacilities" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblFacitities">
+        <PropertyRef Name="FacitityID" />
+      </Principal>
+      <Dependent Role="tblSystemFacilities">
+        <PropertyRef Name="FacitityID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+  <Function Name="sp_All_of_one_Project" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ProjectName" Type="nchar" Mode="In" />
+  </Function>
+  <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_Budget_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ProjectID" Type="int" Mode="In" />
+    <Parameter Name="DesiredBudget" Type="int" Mode="In" />
+    <Parameter Name="ActualBudget" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_Budget_Update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ProjectID" Type="int" Mode="In" />
+    <Parameter Name="DesiredBudget" Type="int" Mode="In" />
+    <Parameter Name="ActualBudget" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_Dates_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ProjectID" Type="int" Mode="In" />
+    <Parameter Name="SchedualedStartDate" Type="datetime" Mode="In" />
+    <Parameter Name="SchedualedEndDate" Type="datetime" Mode="In" />
+    <Parameter Name="ActualStartDate" Type="datetime" Mode="In" />
+    <Parameter Name="ActualEndDate" Type="datetime" Mode="In" />
+    <Parameter Name="RequestedDate" Type="datetime" Mode="In" />
+    <Parameter Name="ContactedDate" Type="datetime" Mode="In" />
+    <Parameter Name="ArchiveDate" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="sp_Dates_Update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ProjectID" Type="int" Mode="In" />
+    <Parameter Name="SchedualedStartDate" Type="datetime" Mode="In" />
+    <Parameter Name="SchedualedEndDate" Type="datetime" Mode="In" />
+    <Parameter Name="ActualStartDate" Type="datetime" Mode="In" />
+    <Parameter Name="ActualEndDate" Type="datetime" Mode="In" />
+    <Parameter Name="RequestedDate" Type="datetime" Mode="In" />
+    <Parameter Name="ContactedDate" Type="datetime" Mode="In" />
+    <Parameter Name="ArchiveDate" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_Project_Categorty_Remove" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ProjectID" Type="int" Mode="In" />
+    <Parameter Name="CategoryID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_Project_Categorty_Update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ProjectID" Type="int" Mode="In" />
+    <Parameter Name="CategoryID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_Project_Category_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ProjectID" Type="int" Mode="In" />
+    <Parameter Name="CategoryID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_Project_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ProjectName" Type="nchar" Mode="In" />
+  </Function>
+  <Function Name="sp_Project_Facility_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ProjectID" Type="int" Mode="In" />
+    <Parameter Name="FacilityID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_Project_Facility_Remove" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ProjectID" Type="int" Mode="In" />
+    <Parameter Name="FacilityID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_Project_Facility_Update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ProjectID" Type="int" Mode="In" />
+    <Parameter Name="FacilityID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_Project_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Name" Type="nchar" Mode="In" />
+    <Parameter Name="PrimaryLeadID" Type="int" Mode="In" />
+    <Parameter Name="SecondaryLeadID" Type="int" Mode="In" />
+    <Parameter Name="TypeID" Type="int" Mode="In" />
+    <Parameter Name="SizeID" Type="int" Mode="In" />
+    <Parameter Name="RequesterID" Type="nchar" Mode="In" />
+    <Parameter Name="PriorityID" Type="int" Mode="In" />
+    <Parameter Name="StatusID" Type="int" Mode="In" />
+    <Parameter Name="Resorces" Type="nchar" Mode="In" />
+    <Parameter Name="DepartmentOfRequest" Type="nchar" Mode="In" />
+    <Parameter Name="LaborHours" Type="int" Mode="In" />
+    <Parameter Name="RankingScore" Type="int" Mode="In" />
+    <Parameter Name="Submitter" Type="nchar" Mode="In" />
+    <Parameter Name="ProjectID" Type="int" Mode="InOut" />
+  </Function>
+  <Function Name="sp_Project_Update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Name" Type="nchar" Mode="In" />
+    <Parameter Name="PrimaryLeadID" Type="int" Mode="In" />
+    <Parameter Name="SecondaryLeadID" Type="int" Mode="In" />
+    <Parameter Name="TypeID" Type="int" Mode="In" />
+    <Parameter Name="SizeID" Type="int" Mode="In" />
+    <Parameter Name="RequesterID" Type="nchar" Mode="In" />
+    <Parameter Name="PriorityID" Type="int" Mode="In" />
+    <Parameter Name="StatusID" Type="int" Mode="In" />
+    <Parameter Name="Resorces" Type="nchar" Mode="In" />
+    <Parameter Name="DepartmentOfRequest" Type="nchar" Mode="In" />
+    <Parameter Name="LaborHours" Type="int" Mode="In" />
+    <Parameter Name="RankingScore" Type="int" Mode="In" />
+    <Parameter Name="Submitter" Type="nchar" Mode="In" />
+    <Parameter Name="ProjectID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_Prupose_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ProjectID" Type="int" Mode="In" />
+    <Parameter Name="Comments" Type="nchar" Mode="In" />
+    <Parameter Name="FutureState" Type="nchar" Mode="In" />
+  </Function>
+  <Function Name="sp_Prupose_Update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ProjectID" Type="int" Mode="In" />
+    <Parameter Name="Comments" Type="nchar" Mode="In" />
+    <Parameter Name="FutureState" Type="nchar" Mode="In" />
+  </Function>
+  <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_Requester_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Name" Type="varchar" Mode="In" />
+    <Parameter Name="Email" Type="varchar" Mode="In" />
+    <Parameter Name="Phone" Type="int" Mode="In" />
+    <Parameter Name="RequestID" Type="int" Mode="InOut" />
+  </Function>
+  <Function Name="sp_Requester_Update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Name" Type="varchar" Mode="In" />
+    <Parameter Name="Email" Type="varchar" Mode="In" />
+    <Parameter Name="Phone" Type="int" Mode="In" />
+    <Parameter Name="RequestID" Type="int" Mode="InOut" />
+  </Function>
+  <Function Name="sp_StatusUpdate_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ProjectID" Type="int" Mode="In" />
+    <Parameter Name="ProjectStatusUpdate" Type="nchar" Mode="In" />
+    <Parameter Name="ProjectStatusUpdateDate" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="sp_table_names" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="sp_table_row_names" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="TableName" Type="nchar" Mode="In" />
+  </Function>
+  <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <EntityContainer Name="HSISProjectsModelStoreContainer">
+    <EntitySet Name="tblCategories" EntityType="Self.tblCategories" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblFacitities" EntityType="Self.tblFacitities" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblProjectCategories" EntityType="Self.tblProjectCategories" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblProjectDates" EntityType="Self.tblProjectDates" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblProjectStatus" EntityType="Self.tblProjectStatus" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblProjectStatusUpdates" EntityType="Self.tblProjectStatusUpdates" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblSystemFacilities" EntityType="Self.tblSystemFacilities" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__tblProjec__Categ__33D4B598" Association="Self.FK__tblProjec__Categ__33D4B598">
+      <End Role="tblCategories" EntitySet="tblCategories" />
+      <End Role="tblProjectCategories" EntitySet="tblProjectCategories" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tblSystem__Facit__2F10007B" Association="Self.FK__tblSystem__Facit__2F10007B">
+      <End Role="tblFacitities" EntitySet="tblFacitities" />
+      <End Role="tblSystemFacilities" EntitySet="tblSystemFacilities" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

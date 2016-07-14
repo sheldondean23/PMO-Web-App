@@ -1,0 +1,269 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="HSISProjectsEntitiesStoreContainer" CdmEntityContainer="Entities">
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="HSISProjectsEntities.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblCategories">
+      <EntityTypeMapping TypeName="HSISProjectsEntities.tblCategory">
+        <MappingFragment StoreEntitySet="tblCategories">
+          <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+          <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblFacilities">
+      <EntityTypeMapping TypeName="HSISProjectsEntities.tblFacility">
+        <MappingFragment StoreEntitySet="tblFacilities">
+          <ScalarProperty Name="FacitityID" ColumnName="FacitityID" />
+          <ScalarProperty Name="FacitityName" ColumnName="FacitityName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblFeedbackQuestionAnswers">
+      <EntityTypeMapping TypeName="HSISProjectsEntities.tblFeedbackQuestionAnswer">
+        <MappingFragment StoreEntitySet="tblFeedbackQuestionAnswer">
+          <ScalarProperty Name="FeedbackQuestionAnswerID" ColumnName="FeedbackQuestionAnswerID" />
+          <ScalarProperty Name="ProjectFeedbackID" ColumnName="ProjectFeedbackID" />
+          <ScalarProperty Name="FeedbackQuestionID" ColumnName="FeedbackQuestionID" />
+          <ScalarProperty Name="FeedbackAnswerRank" ColumnName="FeedbackAnswerRank" />
+          <ScalarProperty Name="FeedbackAnswerOpenEnd" ColumnName="FeedbackAnswerOpenEnd" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblFeedbackQuestions">
+      <EntityTypeMapping TypeName="HSISProjectsEntities.tblFeedbackQuestion">
+        <MappingFragment StoreEntitySet="tblFeedbackQuestions">
+          <ScalarProperty Name="QuestionID" ColumnName="QuestionID" />
+          <ScalarProperty Name="QuestionContent" ColumnName="QuestionContent" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblHSISPrimaryLeads">
+      <EntityTypeMapping TypeName="HSISProjectsEntities.tblHSISPrimaryLead">
+        <MappingFragment StoreEntitySet="tblHSISPrimaryLead">
+          <ScalarProperty Name="PrimaryLeadID" ColumnName="PrimaryLeadID" />
+          <ScalarProperty Name="PrimaryLeadName" ColumnName="PrimaryLeadName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblHSISSecondaryLeads">
+      <EntityTypeMapping TypeName="HSISProjectsEntities.tblHSISSecondaryLead">
+        <MappingFragment StoreEntitySet="tblHSISSecondaryLead">
+          <ScalarProperty Name="SecondaryLeadID" ColumnName="SecondaryLeadID" />
+          <ScalarProperty Name="SecondaryLeadName" ColumnName="SecondaryLeadName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblProjectBudgets">
+      <EntityTypeMapping TypeName="HSISProjectsEntities.tblProjectBudget">
+        <MappingFragment StoreEntitySet="tblProjectBudget">
+          <ScalarProperty Name="ProjectBudgetID" ColumnName="ProjectBudgetID" />
+          <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+          <ScalarProperty Name="ProjectDesiredBudget" ColumnName="ProjectDesiredBudget" />
+          <ScalarProperty Name="ProjectActualBudget" ColumnName="ProjectActualBudget" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblProjectCategories">
+      <EntityTypeMapping TypeName="HSISProjectsEntities.tblProjectCategory">
+        <MappingFragment StoreEntitySet="tblProjectCategories">
+          <ScalarProperty Name="ConvertionID" ColumnName="ConvertionID" />
+          <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+          <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblProjectDates">
+      <EntityTypeMapping TypeName="HSISProjectsEntities.tblProjectDate">
+        <MappingFragment StoreEntitySet="tblProjectDates">
+          <ScalarProperty Name="ProjectDatesID" ColumnName="ProjectDatesID" />
+          <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+          <ScalarProperty Name="ScheduledStartDate" ColumnName="ScheduledStartDate" />
+          <ScalarProperty Name="ScheduledEndDate" ColumnName="ScheduledEndDate" />
+          <ScalarProperty Name="ActualStartDate" ColumnName="ActualStartDate" />
+          <ScalarProperty Name="ActualEndDate" ColumnName="ActualEndDate" />
+          <ScalarProperty Name="RequestedDate" ColumnName="RequestedDate" />
+          <ScalarProperty Name="ContactedDate" ColumnName="ContactedDate" />
+          <ScalarProperty Name="ArchiveDate" ColumnName="ArchiveDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblProjectFacilities">
+      <EntityTypeMapping TypeName="HSISProjectsEntities.tblProjectFacility">
+        <MappingFragment StoreEntitySet="tblProjectFacilities">
+          <ScalarProperty Name="ConvertionID" ColumnName="ConvertionID" />
+          <ScalarProperty Name="FacilityID" ColumnName="FacilityID" />
+          <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblProjectFeedbacks">
+      <EntityTypeMapping TypeName="HSISProjectsEntities.tblProjectFeedback">
+        <MappingFragment StoreEntitySet="tblProjectFeedback">
+          <ScalarProperty Name="ProjectFeedbackID" ColumnName="ProjectFeedbackID" />
+          <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+          <ScalarProperty Name="FeedbackSubmitterName" ColumnName="FeedbackSubmitterName" />
+          <ScalarProperty Name="FeedbackSubmitterEmail" ColumnName="FeedbackSubmitterEmail" />
+          <ScalarProperty Name="FeedbackSubmitterDepartment" ColumnName="FeedbackSubmitterDepartment" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblProjectInformations">
+      <EntityTypeMapping TypeName="HSISProjectsEntities.tblProjectInformation">
+        <MappingFragment StoreEntitySet="tblProjectInformation">
+          <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+          <ScalarProperty Name="ProjectName" ColumnName="ProjectName" />
+          <ScalarProperty Name="HSISPrimaryLeadID" ColumnName="HSISPrimaryLeadID" />
+          <ScalarProperty Name="HSISSecondaryLeadID" ColumnName="HSISSecondaryLeadID" />
+          <ScalarProperty Name="ProjectRequestTypeID" ColumnName="ProjectRequestTypeID" />
+          <ScalarProperty Name="ProjectSizeID" ColumnName="ProjectSizeID" />
+          <ScalarProperty Name="ProjectRequesterID" ColumnName="ProjectRequesterID" />
+          <ScalarProperty Name="ProjectPriorityID" ColumnName="ProjectPriorityID" />
+          <ScalarProperty Name="ProjectStatusID" ColumnName="ProjectStatusID" />
+          <ScalarProperty Name="DepartmentOfRequest" ColumnName="DepartmentOfRequest" />
+          <ScalarProperty Name="ProjectLaborHours" ColumnName="ProjectLaborHours" />
+          <ScalarProperty Name="ProjectRankingScore" ColumnName="ProjectRankingScore" />
+          <ScalarProperty Name="ProjectSubmitter" ColumnName="ProjectSubmitter" />
+          <ScalarProperty Name="ProjectFOPALnumber" ColumnName="ProjectFOPALnumber" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblProjectPriorities">
+      <EntityTypeMapping TypeName="HSISProjectsEntities.tblProjectPriority">
+        <MappingFragment StoreEntitySet="tblProjectPriority">
+          <ScalarProperty Name="PriorityID" ColumnName="PriorityID" />
+          <ScalarProperty Name="PriorityName" ColumnName="PriorityName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblProjectPurposes">
+      <EntityTypeMapping TypeName="HSISProjectsEntities.tblProjectPurpose">
+        <MappingFragment StoreEntitySet="tblProjectPurpose">
+          <ScalarProperty Name="ProjectPurposeID" ColumnName="ProjectPurposeID" />
+          <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+          <ScalarProperty Name="Comments" ColumnName="Comments" />
+          <ScalarProperty Name="FutureState" ColumnName="FutureState" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblProjectRequesters">
+      <EntityTypeMapping TypeName="HSISProjectsEntities.tblProjectRequester">
+        <MappingFragment StoreEntitySet="tblProjectRequester">
+          <ScalarProperty Name="ProjectRequesterID" ColumnName="ProjectRequesterID" />
+          <ScalarProperty Name="ProjectRequesterName" ColumnName="ProjectRequesterName" />
+          <ScalarProperty Name="ProjectRequesterEmail" ColumnName="ProjectRequesterEmail" />
+          <ScalarProperty Name="ProjectRequesterPhone" ColumnName="ProjectRequesterPhone" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblProjectRequestTypes">
+      <EntityTypeMapping TypeName="HSISProjectsEntities.tblProjectRequestType">
+        <MappingFragment StoreEntitySet="tblProjectRequestType">
+          <ScalarProperty Name="ProjectRequestTypeID" ColumnName="ProjectRequestTypeID" />
+          <ScalarProperty Name="ProjectRequestTypeName" ColumnName="ProjectRequestTypeName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblProjectResources">
+      <EntityTypeMapping TypeName="HSISProjectsEntities.tblProjectResource">
+        <MappingFragment StoreEntitySet="tblProjectResources">
+          <ScalarProperty Name="ConvertionID" ColumnName="ConvertionID" />
+          <ScalarProperty Name="ResourceID" ColumnName="ResourceID" />
+          <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblProjectSizes">
+      <EntityTypeMapping TypeName="HSISProjectsEntities.tblProjectSize">
+        <MappingFragment StoreEntitySet="tblProjectSize">
+          <ScalarProperty Name="ProjectSizeID" ColumnName="ProjectSizeID" />
+          <ScalarProperty Name="ProjectSizeName" ColumnName="ProjectSizeName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblProjectStatus">
+      <EntityTypeMapping TypeName="HSISProjectsEntities.tblProjectStatu">
+        <MappingFragment StoreEntitySet="tblProjectStatus">
+          <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+          <ScalarProperty Name="StatusName" ColumnName="StatusName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblProjectStatusUpdates">
+      <EntityTypeMapping TypeName="HSISProjectsEntities.tblProjectStatusUpdate">
+        <MappingFragment StoreEntitySet="tblProjectStatusUpdates">
+          <ScalarProperty Name="ProjectStatusUpdatesID" ColumnName="ProjectStatusUpdatesID" />
+          <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+          <ScalarProperty Name="ProjectStatusUpdate" ColumnName="ProjectStatusUpdate" />
+          <ScalarProperty Name="ProjectStatusUpdateDate" ColumnName="ProjectStatusUpdateDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblResources">
+      <EntityTypeMapping TypeName="HSISProjectsEntities.tblResource">
+        <MappingFragment StoreEntitySet="tblResources">
+          <ScalarProperty Name="ResourceID" ColumnName="ResourceID" />
+          <ScalarProperty Name="ResourceName" ColumnName="ResourceName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="HSISProjectsEntities.Store.sp_alterdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_Budget_Insert" FunctionName="HSISProjectsEntities.Store.sp_Budget_Insert" />
+    <FunctionImportMapping FunctionImportName="sp_Budget_Update" FunctionName="HSISProjectsEntities.Store.sp_Budget_Update" />
+    <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="HSISProjectsEntities.Store.sp_creatediagram" />
+    <FunctionImportMapping FunctionImportName="sp_Dates_Insert" FunctionName="HSISProjectsEntities.Store.sp_Dates_Insert" />
+    <FunctionImportMapping FunctionImportName="sp_Dates_Update" FunctionName="HSISProjectsEntities.Store.sp_Dates_Update" />
+    <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="HSISProjectsEntities.Store.sp_dropdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_Feedback_Insert" FunctionName="HSISProjectsEntities.Store.sp_Feedback_Insert" />
+    <FunctionImportMapping FunctionImportName="sp_FeedbackResponces_Insert" FunctionName="HSISProjectsEntities.Store.sp_FeedbackResponces_Insert" />
+    <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="HSISProjectsEntities.Store.sp_helpdiagramdefinition">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="HSISProjectsEntities.sp_helpdiagramdefinition_Result">
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="HSISProjectsEntities.Store.sp_helpdiagrams">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="HSISProjectsEntities.sp_helpdiagrams_Result">
+          <ScalarProperty Name="Database" ColumnName="Database" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Owner" ColumnName="Owner" />
+          <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_Project_Category_Insert" FunctionName="HSISProjectsEntities.Store.sp_Project_Category_Insert" />
+    <FunctionImportMapping FunctionImportName="sp_Project_Category_Remove" FunctionName="HSISProjectsEntities.Store.sp_Project_Category_Remove" />
+    <FunctionImportMapping FunctionImportName="sp_Project_Category_Update" FunctionName="HSISProjectsEntities.Store.sp_Project_Category_Update" />
+    <FunctionImportMapping FunctionImportName="sp_Project_Delete" FunctionName="HSISProjectsEntities.Store.sp_Project_Delete" />
+    <FunctionImportMapping FunctionImportName="sp_Project_Facility_Insert" FunctionName="HSISProjectsEntities.Store.sp_Project_Facility_Insert" />
+    <FunctionImportMapping FunctionImportName="sp_Project_Facility_Remove" FunctionName="HSISProjectsEntities.Store.sp_Project_Facility_Remove" />
+    <FunctionImportMapping FunctionImportName="sp_Project_Facility_Update" FunctionName="HSISProjectsEntities.Store.sp_Project_Facility_Update" />
+    <FunctionImportMapping FunctionImportName="sp_Project_Insert" FunctionName="HSISProjectsEntities.Store.sp_Project_Insert" />
+    <FunctionImportMapping FunctionImportName="sp_Project_Resource_Insert" FunctionName="HSISProjectsEntities.Store.sp_Project_Resource_Insert" />
+    <FunctionImportMapping FunctionImportName="sp_Project_Resource_Remove" FunctionName="HSISProjectsEntities.Store.sp_Project_Resource_Remove" />
+    <FunctionImportMapping FunctionImportName="sp_Project_Resource_Update" FunctionName="HSISProjectsEntities.Store.sp_Project_Resource_Update" />
+    <FunctionImportMapping FunctionImportName="sp_Project_Update" FunctionName="HSISProjectsEntities.Store.sp_Project_Update" />
+    <FunctionImportMapping FunctionImportName="sp_Prupose_Insert" FunctionName="HSISProjectsEntities.Store.sp_Prupose_Insert" />
+    <FunctionImportMapping FunctionImportName="sp_Purpose_Update" FunctionName="HSISProjectsEntities.Store.sp_Purpose_Update" />
+    <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="HSISProjectsEntities.Store.sp_renamediagram" />
+    <FunctionImportMapping FunctionImportName="sp_Requester_Update" FunctionName="HSISProjectsEntities.Store.sp_Requester_Update" />
+    <FunctionImportMapping FunctionImportName="sp_StatusUpdate_Insert" FunctionName="HSISProjectsEntities.Store.sp_StatusUpdate_Insert" />
+    <FunctionImportMapping FunctionImportName="sp_StatusUpdate_Update" FunctionName="HSISProjectsEntities.Store.sp_StatusUpdate_Update" />
+    <FunctionImportMapping FunctionImportName="sp_table_names" FunctionName="HSISProjectsEntities.Store.sp_table_names" />
+    <FunctionImportMapping FunctionImportName="sp_table_row_names" FunctionName="HSISProjectsEntities.Store.sp_table_row_names" />
+    <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="HSISProjectsEntities.Store.sp_upgraddiagrams" />
+  </EntityContainerMapping>
+</Mapping>

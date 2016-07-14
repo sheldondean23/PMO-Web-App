@@ -1,0 +1,105 @@
+﻿@model IEnumerable<PMOWebsite.Models.db.List.ProjectList>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LongTableLayout.cshtml";
+}
+
+<h2>Projects</h2>
+<h4>Project List</h4>
+<div>
+ @*   @{Html.RenderPartial("_Search");}*@
+    <div class="Filter">
+        @foreach (var filterList in (string[])Session["Filter"])
+            {
+            @Html.ActionLink(@filterList, "Index", "Projects", new { list = @filterList }, new { @class = "stretch" })
+        }
+    </div>
+
+    <div class="align-right">
+        <p>@Html.ActionLink("Create New", "Create", "Projects", new { @class = "btn btn-default glyphicon-plus" })</p>
+        @*<p class="refresh-button">@Html.ActionLink("", "Index", "Projects", new { id = item.projectID })</p>*@
+        <p class="refresh-button">@Html.ActionLink(" Refresh", "Index", "Projects", null, new { @class = "glyphicon glyphicon-repeat" })</p>
+    </div>
+</div>
+
+<table class="table sortable">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.projectName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SelectedCategories)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.scheduledStartDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.scheduledEndDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.projectStatus)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SelectedFacilities)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.desiredBudget)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.mostResentuUpdate)
+        </th>
+        <th style="white-space:pre">                                  </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.projectName)
+        </td>
+        <td>
+            @foreach (var categories in item.SelectedCategories)
+            {
+            @Html.DisplayFor(modelItem => categories.name)
+            }
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.scheduledStartDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.scheduledEndDate)
+        </td>
+        <td>
+            @{
+                switch (item.projectStatus.name)
+                {
+                    case "Behind Schedule":
+                            <div class="circle" id="advanced"></div>
+                            @Html.DisplayFor(modelItem => item.projectStatus.name, new { @class = "circle", @id = "advanced" });
+                        break;
+                }
+            }
+            
+        </td>
+        <td>
+            @foreach (var facilities in item.SelectedFacilities)
+            {
+            @Html.DisplayFor(modelItem => facilities.name)
+            }
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.desiredBudget)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.mostResentuUpdate)
+        </td>
+       <td>
+            @*@Html.ActionLink("Edit", "Edit", new { id=item.projectID })*@ 
+            @Html.ActionLink("Details", "Details", new { id=item.projectID }) <br />
+            @Html.ActionLink("Leave Feedback", "Feedback", new { id = item.projectID }) <br />
+            @*@Html.ActionLink("Add Status Update", "StatusUpdateAdd", new { id = item.projectID })*@
+        </td>
+    </tr>
+}
+
+</table>

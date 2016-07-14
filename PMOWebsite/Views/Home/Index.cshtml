@@ -1,0 +1,41 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+        }
+
+
+<div class="jumbotron">
+    <h1>Project Management Office</h1>
+    <p class="lead">University of South Alabama Health System Information Services</p>
+    @Html.ActionLink("Request a Project", "Create", "Projects", null, new { @class = "btn btn-primary btn-lg" })
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>Welcome</h2>
+        <p>
+            The Project Management Office (PMO) of the Health Systems Information Services (HSIS) department defines and maintains the standards and processes related to delivering
+            information services projects within University of South Alabama Health.
+            <br />
+            <br />-Thkisha DeDe Sanogo, PMO Program Director
+        </p>
+        
+        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+    </div>
+    <div class="col-md-4 ">
+        <h2>Project Management Office **New**</h2>
+        <p>
+            The HSIS PMO uses proven project management principles and a common methodology across all activities to support the entire project life cycle.
+
+            <br />We work with sponsors and project teams at every stage of the project proposal process, from submission of the initial project request form through to the project prioritization decisions.
+            <br />We work with department managers and project teams to provide project management frameworks, status reports, and support to achieve the desired results within the project constraints.
+            <br />We provide weekly updates of the project prioritization list and a monthly project dashboard.
+        </p>
+        @Html.ActionLink("Leave Feedback", "Feedback", "Projects", null, new { @class = "btn btn-default" })
+</div>
+    <div class="col-md-4">
+        <h2>Introduction</h2>
+        <p>The PMO supports the Information Services Steering Committee (ISSC) by providing a solid project management methodology, a system-wide technology roadmap, and manages the 
+        project request intake process/prioritization in alignment with key Information Services and USA Health System initiatives.</p>
+        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+    </div>
+</div>

@@ -1,0 +1,148 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="HSISProjectsModelStoreContainer" CdmEntityContainer="HSISProjectsEntities">
+    <EntitySetMapping Name="tblCategories">
+      <EntityTypeMapping TypeName="IsTypeOf(HSISProjectsModel.tblCategory)">
+        <MappingFragment StoreEntitySet="tblCategories">
+          <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+          <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblFacitities">
+      <EntityTypeMapping TypeName="IsTypeOf(HSISProjectsModel.tblFacitity)">
+        <MappingFragment StoreEntitySet="tblFacitities">
+          <ScalarProperty Name="FacitityID" ColumnName="FacitityID" />
+          <ScalarProperty Name="FacitityName" ColumnName="FacitityName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblProjectCategories">
+      <EntityTypeMapping TypeName="IsTypeOf(HSISProjectsModel.tblProjectCategory)">
+        <MappingFragment StoreEntitySet="tblProjectCategories">
+          <ScalarProperty Name="ConvertionID" ColumnName="ConvertionID" />
+          <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+          <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblProjectDates">
+      <EntityTypeMapping TypeName="IsTypeOf(HSISProjectsModel.tblProjectDate)">
+        <MappingFragment StoreEntitySet="tblProjectDates">
+          <ScalarProperty Name="ProjectDatesID" ColumnName="ProjectDatesID" />
+          <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+          <ScalarProperty Name="SchedualedStartDate" ColumnName="SchedualedStartDate" />
+          <ScalarProperty Name="SchedualedEndDate" ColumnName="SchedualedEndDate" />
+          <ScalarProperty Name="ActualStartDate" ColumnName="ActualStartDate" />
+          <ScalarProperty Name="ActualEndDate" ColumnName="ActualEndDate" />
+          <ScalarProperty Name="RequestedDate" ColumnName="RequestedDate" />
+          <ScalarProperty Name="ContactedDate" ColumnName="ContactedDate" />
+          <ScalarProperty Name="ArchiveDate" ColumnName="ArchiveDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblProjectStatus">
+      <EntityTypeMapping TypeName="IsTypeOf(HSISProjectsModel.tblProjectStatu)">
+        <MappingFragment StoreEntitySet="tblProjectStatus">
+          <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+          <ScalarProperty Name="StatusName" ColumnName="StatusName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblProjectStatusUpdates">
+      <EntityTypeMapping TypeName="IsTypeOf(HSISProjectsModel.tblProjectStatusUpdate)">
+        <MappingFragment StoreEntitySet="tblProjectStatusUpdates">
+          <ScalarProperty Name="ProjectStatusUpdatesID" ColumnName="ProjectStatusUpdatesID" />
+          <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+          <ScalarProperty Name="ProjectStatusUpdate" ColumnName="ProjectStatusUpdate" />
+          <ScalarProperty Name="ProjectStatusUpdateDate" ColumnName="ProjectStatusUpdateDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblSystemFacilities">
+      <EntityTypeMapping TypeName="IsTypeOf(HSISProjectsModel.tblSystemFacility)">
+        <MappingFragment StoreEntitySet="tblSystemFacilities">
+          <ScalarProperty Name="ConvertionID" ColumnName="ConvertionID" />
+          <ScalarProperty Name="FacitityID" ColumnName="FacitityID" />
+          <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="sp_All_of_one_Project" FunctionName="HSISProjectsModel.Store.sp_All_of_one_Project">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="HSISProjectsModel.sp_All_of_one_Project_Result">
+          <ScalarProperty Name="ProjectRequesterEmail" ColumnName="ProjectRequesterEmail" />
+          <ScalarProperty Name="ProjectRequesterName" ColumnName="ProjectRequesterName" />
+          <ScalarProperty Name="ProjectRequesterPhone" ColumnName="ProjectRequesterPhone" />
+          <ScalarProperty Name="ProjectName" ColumnName="ProjectName" />
+          <ScalarProperty Name="DepartmentOfRequest" ColumnName="DepartmentOfRequest" />
+          <ScalarProperty Name="ProjectSubmitter" ColumnName="ProjectSubmitter" />
+          <ScalarProperty Name="ProjectResorces" ColumnName="ProjectResorces" />
+          <ScalarProperty Name="ProjectRankingScore" ColumnName="ProjectRankingScore" />
+          <ScalarProperty Name="ProjectLaborHours" ColumnName="ProjectLaborHours" />
+          <ScalarProperty Name="Comments" ColumnName="Comments" />
+          <ScalarProperty Name="FutureState" ColumnName="FutureState" />
+          <ScalarProperty Name="ProjectActualBudget" ColumnName="ProjectActualBudget" />
+          <ScalarProperty Name="ProjectDesiredBudget" ColumnName="ProjectDesiredBudget" />
+          <ScalarProperty Name="ProjectRequestTypeName" ColumnName="ProjectRequestTypeName" />
+          <ScalarProperty Name="PrimaryLeadName" ColumnName="PrimaryLeadName" />
+          <ScalarProperty Name="SecondaryLeadName" ColumnName="SecondaryLeadName" />
+          <ScalarProperty Name="ProjectSizeName" ColumnName="ProjectSizeName" />
+          <ScalarProperty Name="PriorityName" ColumnName="PriorityName" />
+          <ScalarProperty Name="StatusName" ColumnName="StatusName" />
+          <ScalarProperty Name="ActualEndDate" ColumnName="ActualEndDate" />
+          <ScalarProperty Name="ActualStartDate" ColumnName="ActualStartDate" />
+          <ScalarProperty Name="ArchiveDate" ColumnName="ArchiveDate" />
+          <ScalarProperty Name="ContactedDate" ColumnName="ContactedDate" />
+          <ScalarProperty Name="SchedualedEndDate" ColumnName="SchedualedEndDate" />
+          <ScalarProperty Name="SchedualedStartDate" ColumnName="SchedualedStartDate" />
+          <ScalarProperty Name="RequestedDate" ColumnName="RequestedDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="HSISProjectsModel.Store.sp_alterdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_Budget_Insert1" FunctionName="HSISProjectsModel.Store.sp_Budget_Insert" />
+    <FunctionImportMapping FunctionImportName="sp_Budget_Update" FunctionName="HSISProjectsModel.Store.sp_Budget_Update" />
+    <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="HSISProjectsModel.Store.sp_creatediagram" />
+    <FunctionImportMapping FunctionImportName="sp_Dates_Insert1" FunctionName="HSISProjectsModel.Store.sp_Dates_Insert" />
+    <FunctionImportMapping FunctionImportName="sp_Dates_Update" FunctionName="HSISProjectsModel.Store.sp_Dates_Update" />
+    <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="HSISProjectsModel.Store.sp_dropdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="HSISProjectsModel.Store.sp_helpdiagramdefinition">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="HSISProjectsModel.sp_helpdiagramdefinition_Result">
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="HSISProjectsModel.Store.sp_helpdiagrams">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="HSISProjectsModel.sp_helpdiagrams_Result">
+          <ScalarProperty Name="Database" ColumnName="Database" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Owner" ColumnName="Owner" />
+          <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_Project_Categorty_Remove" FunctionName="HSISProjectsModel.Store.sp_Project_Categorty_Remove" />
+    <FunctionImportMapping FunctionImportName="sp_Project_Categorty_Update" FunctionName="HSISProjectsModel.Store.sp_Project_Categorty_Update" />
+    <FunctionImportMapping FunctionImportName="sp_Project_Category_Insert1" FunctionName="HSISProjectsModel.Store.sp_Project_Category_Insert" />
+    <FunctionImportMapping FunctionImportName="sp_Project_Delete1" FunctionName="HSISProjectsModel.Store.sp_Project_Delete" />
+    <FunctionImportMapping FunctionImportName="sp_Project_Facility_Insert1" FunctionName="HSISProjectsModel.Store.sp_Project_Facility_Insert" />
+    <FunctionImportMapping FunctionImportName="sp_Project_Facility_Remove" FunctionName="HSISProjectsModel.Store.sp_Project_Facility_Remove" />
+    <FunctionImportMapping FunctionImportName="sp_Project_Facility_Update" FunctionName="HSISProjectsModel.Store.sp_Project_Facility_Update" />
+    <FunctionImportMapping FunctionImportName="sp_Project_Insert1" FunctionName="HSISProjectsModel.Store.sp_Project_Insert" />
+    <FunctionImportMapping FunctionImportName="sp_Project_Update" FunctionName="HSISProjectsModel.Store.sp_Project_Update" />
+    <FunctionImportMapping FunctionImportName="sp_Prupose_Insert1" FunctionName="HSISProjectsModel.Store.sp_Prupose_Insert" />
+    <FunctionImportMapping FunctionImportName="sp_Prupose_Update" FunctionName="HSISProjectsModel.Store.sp_Prupose_Update" />
+    <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="HSISProjectsModel.Store.sp_renamediagram" />
+    <FunctionImportMapping FunctionImportName="sp_Requester_Insert1" FunctionName="HSISProjectsModel.Store.sp_Requester_Insert" />
+    <FunctionImportMapping FunctionImportName="sp_Requester_Update" FunctionName="HSISProjectsModel.Store.sp_Requester_Update" />
+    <FunctionImportMapping FunctionImportName="sp_StatusUpdate_Insert1" FunctionName="HSISProjectsModel.Store.sp_StatusUpdate_Insert" />
+    <FunctionImportMapping FunctionImportName="sp_table_names1" FunctionName="HSISProjectsModel.Store.sp_table_names" />
+    <FunctionImportMapping FunctionImportName="sp_table_row_names1" FunctionName="HSISProjectsModel.Store.sp_table_row_names" />
+    <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="HSISProjectsModel.Store.sp_upgraddiagrams" />
+  </EntityContainerMapping>
+</Mapping>

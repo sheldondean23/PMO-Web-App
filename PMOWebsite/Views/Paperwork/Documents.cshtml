@@ -1,0 +1,78 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Documents</h2>
+
+<ul>
+    <li>
+        Initiation
+        <ul>
+            <li class="padding-light">I1 – @Html.ActionLink("Project Request Document (PID)", "Download", "Paperwork", new { downloadID = "Project Request Document (PID)" }, null)</li>
+            <li class="padding-light">I2 - @Html.ActionLink("Project Steering Committee", "Download", "Paperwork", new { downloadID = "Project Steering Committee" }, null)</li>
+            <li class="padding-light">I3 – @Html.ActionLink("Project Classification & Sizing", "Download", "Paperwork", new { downloadID = "Project Classification & Sizing" }, null)</li>
+            <li class="padding-light">@Html.ActionLink("Assign Project Manager/Lead", "Download", "Paperwork", new { downloadID = "Assign Project Manager/Lead" }, null)</li>
+            <li class="padding-light">@Html.ActionLink("Phase Sign-off/Closure Document", "Download", "Paperwork", new { downloadID = "Phase Sign-off/Closure Document" }, null)</li>
+        </ul>
+    </li>
+    <li>
+        Planning
+        <ul>
+            <li class="padding-light">P1 - @Html.ActionLink("Reqirements Management", "Download", "Paperwork", new { downloadID = "Reqirements Management" }, null)</li>
+            <li class="padding-light">P2 - @Html.ActionLink("Vendor Specification", "Download", "Paperwork", new { downloadID = "Vendor Specification" }, null)</li>
+            <li class="padding-light">@Html.ActionLink("Project Planning Documents", "Download", "Paperwork", new { downloadID = "Project Planning Documents" }, null)</li>
+            <li class="padding-light">P3 - @Html.ActionLink("Project Plan/Project Charter (Dynamic)", "Download", "Paperwork", new { downloadID = "Project Plan/Project Charter (Dynamic)" }, null)</li>
+            <li class="padding-light">@Html.ActionLink("Risk Management Plan", "Download", "Paperwork", new { downloadID = "Risk Management Plan" }, null)</li>
+            <li class="padding-light">@Html.ActionLink("Time Management Plan", "Download", "Paperwork", new { downloadID = "Time Management Plan" }, null)</li>
+            <li class="padding-light">@Html.ActionLink("Cost Management Plan", "Download", "Paperwork", new { downloadID = "Cost Management Plan" }, null)</li>
+            <li class="padding-light">@Html.ActionLink("Resource Management Plan", "Download", "Paperwork", new { downloadID = "Resource Management Plan" }, null)</li>
+            <li class="padding-light">@Html.ActionLink("Issue Management Plan", "Download", "Paperwork", new { downloadID = "Issue Management Plan" }, null)</li>
+            <li class="padding-light">@Html.ActionLink("Scope Management Plan", "Download", "Paperwork", new { downloadID = "Scope Management Plan" }, null)</li>
+            <li class="padding-light">P4 - @Html.ActionLink("Planning Kick-Off Meeting", "Download", "Paperwork", new { downloadID = "Planning Kick-Off Meeting" }, null)</li>
+            <li class="padding-light">P5 - @Html.ActionLink("Milestones List", "Download", "Paperwork", new { downloadID = "Milestones List" }, null)</li>
+            <li class="padding-light">@Html.ActionLink("Phase Sign-off Document", "Download", "Paperwork", new { downloadID = "Phase Sign-off Document" }, null)</li>
+        </ul>
+    </li>
+    <li>
+        Executing/Implementing
+        <ul>
+            <li class="padding-light">@Html.ActionLink("Project Kick -off Meeting", "Download", "Paperwork", new { downloadID = "Project Kick -off Meeting" }, null)</li>
+            <li class="padding-light">E1 - @Html.ActionLink("Project Task List (Deliverables)", "Download", "Paperwork", new { downloadID = "Project Task List (Deliverables)" }, null)</li>
+            <li class="padding-light">E2 - @Html.ActionLink("Communication List", "Download", "Paperwork", new { downloadID = "Communication List" }, null)</li>
+            <li class="padding-light">E3 - @Html.ActionLink("Risk Log", "Download", "Paperwork", new { downloadID = "Risk Log" }, null)</li>
+            <li class="padding-light">E4 - @Html.ActionLink("Project Schedule", "Download", "Paperwork", new { downloadID = "Project Schedule" }, null)</li>
+            <li class="padding-light">@Html.ActionLink("Manage Scope", "Download", "Paperwork", new { downloadID = "Manage Scope" }, null)</li>
+            <li class="padding-light">@Html.ActionLink("Manage Costs", "Download", "Paperwork", new { downloadID = "Manage Costs" }, null)</li>
+            <li class="padding-light">E5 - @Html.ActionLink("Issues List", "Download", "Paperwork", new { downloadID = "Issues List" }, null)</li>
+            <li class="padding-light">@Html.ActionLink("Phase Sign-off/Closure Document", "Download", "Paperwork", new { downloadID = "Phase Sign-off/Closure Document" }, null)</li>
+        </ul>
+    </li>
+    <li>
+        Monitoring & Controlling
+        <ul>
+            <li class="padding-light">M1 - @Html.ActionLink("Status Report", "Download", "Paperwork", new { downloadID = "Status Report" }, null)</li>
+            <li class="padding-light">@Html.ActionLink("Visual Project Plan", "Download", "Paperwork", new { downloadID = "Visual Project Plan" }, null)</li>
+            <li class="padding-light">@Html.ActionLink("Approved Changes", "Download", "Paperwork", new { downloadID = "Approved Changes" }, null)</li>
+            <li class="padding-light">@Html.ActionLink("Perfomance measures", "Download", "Paperwork", new { downloadID = "Perfomance measures" }, null)</li>
+            <li class="padding-light">@Html.ActionLink("Contract changes", "Download", "Paperwork", new { downloadID = "Contract changes" }, null)</li>
+            <li class="padding-light">@Html.ActionLink("Document Issues", "Download", "Paperwork", new { downloadID = "Document Issues" }, null)</li>
+            <li class="padding-light">@Html.ActionLink("Conduct Status Review meetings", "Download", "Paperwork", new { downloadID = "Conduct Status Review meetings" }, null)</li>
+            <li class="padding-light">@Html.ActionLink("Corrective actions", "Download", "Paperwork", new { downloadID = "Corrective actions" }, null)</li>
+            <li class="padding-light">@Html.ActionLink("Change Request", "Download", "Paperwork", new { downloadID = "Change Request" }, null)</li>
+            <li class="padding-light">@Html.ActionLink("Meeting Minutes", "Download", "Paperwork", new { downloadID = "Meeting Minutes" }, null)</li>
+            <li class="padding-light">@Html.ActionLink("Meeting Agenda", "Download", "Paperwork", new { downloadID = "Meeting Agenda" }, null)</li>
+        </ul>
+    </li>
+    <li>
+        Closure
+        <ul>
+            <li class="padding-light">@Html.ActionLink("Lessons Learned", "Download", "Paperwork", new { downloadID = "Lessons Learned" }, null)</li>
+            <li class="padding-light">@Html.ActionLink("Project Sign-off/Closure Document", "Download", "Paperwork", new { downloadID = "Project Sign-off/Closure Document" }, null)</li>
+            <li class="padding-light">@Html.ActionLink("Formal Acceptance", "Download", "Paperwork", new { downloadID = "Formal Acceptance" }, null)</li>
+            <li class="padding-light">@Html.ActionLink("Transition to Production/Operations", "Download", "Paperwork", new { downloadID = "Transition to Production/Operations" }, null)</li>
+            <li class="padding-light">@Html.ActionLink("Contract Closure", "Download", "Paperwork", new { downloadID = "Contract Closure" }, null)</li>
+            <li class="padding-light">@Html.ActionLink("Administrative Closure Documentation", "Download", "Paperwork", new { downloadID = "Administrative Closure Documentation" }, null)</li>
+        </ul>
+    </li>
+</ul>

@@ -1,0 +1,144 @@
+﻿@model PMOWebsite.Models.db.List.ProjectList
+@using MvcCheckBoxList.Model
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Request</h2>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Submit New Project Request</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.requester.name, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.requester.name, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.requester.name, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.requester.email, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.requester.email, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.requester.email, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.requester.phone, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.requester.phone, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.requester.phone, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.projectName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.projectName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.projectName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.departmentOFRequest, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.departmentOFRequest, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.departmentOFRequest, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.projectRequestType, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.projectRequestType.id, (List<SelectListItem>)Session["ProjectRequestType"],"--Select a Requetst Type--", htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.projectRequestType, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        
+        <div class="form-group">
+            @Html.LabelFor(model => model.projectSubmitter, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.projectSubmitter, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.projectSubmitter, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        
+        <div class="form-group">
+            @Html.LabelFor(model => model.projectPriority, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.projectPriority.id, (List<SelectListItem>)Session["ProjectPriority"], "--Select a Project Priority--", htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.projectPriority, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.AvaliableFacilities, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10" id="clb">
+                @Html.CheckBoxListFor(model => model.FacilityIDs, model => model.AvaliableFacilities, entity => entity.id, entity => entity.name, model => model.SelectedFacilities, Position.Vertical)
+               @* @Html.ValidationMessageFor(model => model.SelectedFacilities, "", new { @class = "text-danger" })*@
+                <span id="validationMessage" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.AvaliableCategories, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10" id="clb">
+                @Html.CheckBoxListFor(model => model.CategoryIDs, model => model.AvaliableCategories, entity => entity.id, entity => entity.name, model => model.SelectedCategories, Position.Vertical)
+                @*@Html.ValidationMessageFor(model => model.SelectedCategories, "", new { @class = "text-danger" })*@
+                <span id="validationMessage" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.currentState, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.currentState, new { style = "width: 381px; height:140px",  htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.currentState, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.futureState, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.futureState, new { style = "width: 381px; height:140px", htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.futureState, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.desiredBudget, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.desiredBudget, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.desiredBudget, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group" onload="startTime()">
+            @Html.LabelFor(model => model.requestedDate, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div id = "dateTime" style="padding-top:7px"></div>
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" onclick="return submitWith();" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

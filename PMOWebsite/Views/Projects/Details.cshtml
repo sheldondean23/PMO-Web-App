@@ -1,0 +1,245 @@
+﻿@model PMOWebsite.Models.db.List.ProjectList
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>tblProjectInformation</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.projectName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.projectName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.departmentOFRequest)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.departmentOFRequest)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.projectRequestType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.projectRequestType.name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.projectSubmitter)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.projectSubmitter)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.projectResouces)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.projectResouces)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.projectSize)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.projectSize.name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.projectPriority)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.projectPriority.name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ranking)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ranking)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.laborHr)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.laborHr)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.projectStatus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.projectStatus.name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SelectedFacilities)
+        </dt>
+
+        <dd>
+           @foreach (var facilities in Model.SelectedFacilities)
+            {
+            @Html.DisplayFor(modelItem => facilities.name)<br />
+           }
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SelectedCategories)
+        </dt>
+
+        <dd>
+            @foreach (var catigories in Model.SelectedCategories)
+            {
+                @Html.DisplayFor(modelItem => catigories.name)<br />
+            }
+        </dd>
+        
+        <dt>
+            @Html.DisplayNameFor(model => model.currentState)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.currentState)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.futureState)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.futureState)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.requester.name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.requester.name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.requester.email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.requester.email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.requester.phone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.requester.phone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.desiredBudget)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.desiredBudget)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.actualBudget)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.actualBudget)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.requestedDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.requestedDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.scheduledStartDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.scheduledStartDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.scheduledEndDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.scheduledEndDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.actualStartDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.actualStartDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.actualEndDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.actualEndDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.contactedDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.contactedDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.archiveDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.archiveDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.statusUpdates)
+        </dt>
+
+        <dd>
+            @foreach (var update in Model.statusUpdates)
+            {
+                @Html.DisplayFor(modelItem => update.date)<span>: </span> @Html.DisplayFor(modelItem => update.update)<br /> <br />
+            }
+        </dd>
+    </dl>
+</div>
+<p>
+
+    @Html.ActionLink("Back to List", "Index")
+</p>
+
+

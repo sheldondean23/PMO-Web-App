@@ -1,0 +1,202 @@
+﻿@model PMOWebsite.Models.db.Feedback.Feedback
+@{
+    ViewBag.Title = "Feedback";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <h2>Porject Feedback</h2>
+        <p>
+            We thank you for your time in providing your feedback. The HSIS Project Management Office (PMO) is committed to providing
+            excellent customer service and your feedback is very valuable to us.
+        </p>
+        @Html.HiddenFor(model => model.ProjectID)
+    <div class="form-horizontal padding">
+        <div class="form-group">
+            @Html.LabelFor(model => model.ProjectName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ProjectName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ProjectName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        
+        <div class="form-group">
+    @Html.LabelFor(model => model.SubmitterName, htmlAttributes: new { @class = "control-label col-md-2" })
+    <div class="col-md-10">
+        @Html.EditorFor(model => model.SubmitterName, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.SubmitterName, "", new { @class = "text-danger" })
+    </div>
+</div>
+        
+        <div class="form-group">
+    @Html.LabelFor(model => model.SubmitterEmail, htmlAttributes: new { @class = "control-label col-md-2" })
+    <div class="col-md-10">
+        @Html.EditorFor(model => model.SubmitterEmail, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.SubmitterEmail, "", new { @class = "text-danger" })
+    </div>
+</div>
+        
+        <div class="form-group">
+    @Html.LabelFor(model => model.Department, htmlAttributes: new { @class = "control-label col-md-2" })
+    <div class="col-md-10">
+        @Html.EditorFor(model => model.Department, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.Department, "", new { @class = "text-danger" })
+    </div>
+</div>
+
+        <div class="feedbackSplit">Project Communication</div>
+        <hr style="border: 1px solid #000;"/>
+
+        <div class="form-group">
+            <div>
+                @Html.HiddenFor(model => model.Question1.question)
+                @Html.DisplayFor((model => model.Question1.question))
+            </div>
+                <div class="col-md-10">
+                    @foreach (var value in Model.Question1.RankChoices)
+                {
+                        @Html.RadioButtonFor(model => model.Question1.answer, value) <Span>@value</Span> <br />
+                    }
+                    @Html.ValidationMessageFor(model => model.Question1.answer, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+        <div class="form-group">
+            <div>
+                @Html.HiddenFor(model => model.Question2.question)
+                @Html.DisplayFor(model => model.Question2.question)
+            </div>
+                <div class="col-md-10">
+                    @foreach (var value in Model.Question2.RankChoices)
+                {
+                        @Html.RadioButtonFor(model => model.Question2.answer, value) <Span>@value</Span> <br />
+                    }
+                    @Html.ValidationMessageFor(model => model.Question2.answer, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+        <div class="form-group">
+            <div>
+                @Html.HiddenFor(model => model.Question3.question)
+                @Html.DisplayFor(model => model.Question3.question)
+            </div>
+            <div class="col-md-10">
+                @foreach (var value in Model.Question3.RankChoices)
+                {
+                    @Html.RadioButtonFor(model => model.Question3.answer, value) <Span>@value</Span> <br />
+                }
+                @Html.ValidationMessageFor(model => model.Question3.answer, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="feedbackSplit">Project Schedule</div>
+        <hr style="border: 1px solid #000;" />
+
+        <div class="form-group">
+            <div>
+                @Html.HiddenFor(model => model.Question4.question)
+                @Html.DisplayFor(model => model.Question4.question)
+            </div>
+                <div class="col-md-10">
+                    @foreach (var value in Model.Question4.RankChoices)
+                {
+                        @Html.RadioButtonFor(model => model.Question4.answer, value) <Span>@value</Span> <br />
+                    }
+                    @Html.ValidationMessageFor(model => model.Question4.answer, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+        <div class="form-group">
+            <div>
+                @Html.HiddenFor(model => model.Question5.question)
+                @Html.DisplayFor(model => model.Question5.question)
+            </div>
+                <div class="col-md-10">
+                    @foreach (var value in Model.Question5.RankChoices)
+                {
+                        @Html.RadioButtonFor(model => model.Question5.answer, value) <Span>@value</Span> <br />
+                    }
+                    @Html.ValidationMessageFor(model => model.Question5.answer, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+        <div class="feedbackSplit">Overall Project Product</div>
+        <hr style="border: 1px solid #000;" />
+
+        <div class="form-group">
+            <div>
+                @Html.HiddenFor(model => model.Question6.question)
+                @Html.DisplayFor(model => model.Question6.question)
+            </div>
+                <div class="col-md-10">
+                    @foreach (var value in Model.Question6.RankChoices)
+                {
+                        @Html.RadioButtonFor(model => model.Question6.answer, value) <Span>@value</Span> <br />
+                    }
+                    @Html.ValidationMessageFor(model => model.Question6.answer, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+        <div class="form-group">
+            <div>
+                @Html.HiddenFor(model => model.Question7.question)
+                @Html.DisplayFor(model => model.Question7.question)
+            </div>
+                <div class="col-md-10">
+                    @foreach (var value in Model.Question7.RankChoices)
+                {
+                        @Html.RadioButtonFor(model => model.Question7.answer, value) <Span>@value</Span> <br />
+                    }
+                    @Html.ValidationMessageFor(model => model.Question7.answer, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+        <div class="form-group">
+            <div>
+                @Html.HiddenFor(model => model.Question8.question)
+                @Html.DisplayFor(model => model.Question8.question)
+            </div>
+                <div class="col-md-10">
+                    @foreach (var value in Model.Question8.RankChoices)
+                {
+                        @Html.RadioButtonFor(model => model.Question8.answer, value) <Span>@value</Span> <br />
+                    }
+                    @Html.ValidationMessageFor(model => model.Question8.answer, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+        <div class="feedbackSplit">General Comments</div>
+        <hr style="border: 1px solid #000;" />
+
+        <div class="form-group">
+            <div>
+                @Html.HiddenFor(model => model.Question9.question)
+                @Html.DisplayFor(model => model.Question9.question)
+            </div>
+                <div class="col-md-10">
+                    @Html.TextAreaFor(model => model.Question9.answer, new { style = "width: 381px; height:140px", htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Question9.answer, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Submit Feedback" class="btn btn-default" />
+            </div>
+        </div>
+        </div>
+}
+
+
+        @section Scripts {
+            @Scripts.Render("~/bundles/jqueryval")
+        }
+
+<script>
+    $("#ProjectName").autocomplete({
+  source: '@Url.Action("Autocomplete")'
+});
+</script>
+        

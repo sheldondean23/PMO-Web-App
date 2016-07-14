@@ -1,0 +1,49 @@
+﻿@model PMOWebsite.Models.db.List.StatusUpdate
+
+@{
+    ViewBag.Title = "StatusUpdateAdd";
+}
+
+<h2>StatusUpdateAdd</h2>
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>tblProjectStatusUpdate</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.ProjectId)
+        
+        <div class="form-group" onload="startTime()">
+            @Html.LabelFor(model => model.date, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div id="dateTime" style="padding-top:7px"></div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.update, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.update, new { style = "width: 381px; height:140px", htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.update, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
